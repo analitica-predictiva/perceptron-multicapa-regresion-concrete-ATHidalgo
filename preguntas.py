@@ -22,13 +22,13 @@ def pregunta_01():
     y = df['strength'] 
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    x = df.copy()  
+    X = df.copy()  
 
     # Remueva la columna `strength` del DataFrame `X`.
-    x.drop('strength',  axis=1)  
+    X.drop('strength',  axis=1)  
 
     # Retorne `X` y `y`
-    return x, y
+    return X, y
 
 
 def pregunta_02():
@@ -39,8 +39,8 @@ def pregunta_02():
     # Importe train_test_split
     from sklearn.model_selection import train_test_split
 
-    # Cargue los datos de ejemplo y asigne los resultados a `X` y `y`.
-    x, y = pregunta_01()
+    # Cargue los datos de ejemplo y asigne los resultados a `X` y `y`. 
+    X, y = pregunta_01()
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 12453. Use el 75% de los patrones para entrenamiento.
@@ -50,7 +50,7 @@ def pregunta_02():
         y_train,  
         y_test,  
     ) = train_test_split(  
-        x,  
+        X,  
         y,  
         test_size=0.25,  
         random_state=12453,  
@@ -129,7 +129,7 @@ def pregunta_04():
         estimator=estimator,
         param_grid=param_grid,
         cv = 5, 
-        scoring = "r2"  
+        scoring = "r2", 
     )
 
     return gridsearchcv
