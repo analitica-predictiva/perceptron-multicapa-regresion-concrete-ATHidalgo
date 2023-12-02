@@ -16,19 +16,19 @@ def pregunta_01():
     Carga y separación de los datos en `X` `y`
     """
     # Lea el archivo `concrete.csv` y asignelo al DataFrame `df`
-    df = pd.read_csv('concrete.csv')
+    df = pd.read_csv("concrete.csv")  
 
     # Asigne la columna `strength` a la variable `y`.
-    y = df['strength'] 
+    y = df["strength"]  
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    X = df.copy()  
+    x = df.copy()
 
     # Remueva la columna `strength` del DataFrame `X`.
-    X.drop('strength',  axis=1)  
+    x = df.drop('strength',  axis=1)  
 
     # Retorne `X` y `y`
-    return X, y
+    return x, y
 
 
 def pregunta_02():
@@ -40,7 +40,7 @@ def pregunta_02():
     from sklearn.model_selection import train_test_split
 
     # Cargue los datos de ejemplo y asigne los resultados a `X` y `y`. 
-    X, y = pregunta_01()
+    x, y = pregunta_01()
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 12453. Use el 75% de los patrones para entrenamiento.
@@ -50,7 +50,7 @@ def pregunta_02():
         y_train,  
         y_test,  
     ) = train_test_split(  
-        X,  
+        x,  
         y,  
         test_size=0.25,  
         random_state=12453,  
@@ -129,7 +129,7 @@ def pregunta_04():
         estimator=estimator,
         param_grid=param_grid,
         cv = 5, 
-        scoring = "r2", 
+        scoring = "r2"  
     )
 
     return gridsearchcv
@@ -141,7 +141,7 @@ def pregunta_05():
     """
 
     # Importe mean_squared_error
-    from  sklearn.metrics import mean_squared_error
+    from sklearn.metrics import mean_squared_error
 
     # Cargue las variables.
     x_train, x_test, y_train, y_test = pregunta_02()
